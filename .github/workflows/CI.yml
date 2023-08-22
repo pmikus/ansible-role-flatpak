@@ -39,6 +39,9 @@ jobs:
       - name: "Install test pip dependencies."
         run: "pip3 install ansible molecule molecule-plugins[podman] podman"
 
+      - name: "Install Galaxy dependencies."
+        run: "ansible-galaxy collection install community.general"
+
       - name: "Run Molecule tests."
         run: "molecule test"
         env:
