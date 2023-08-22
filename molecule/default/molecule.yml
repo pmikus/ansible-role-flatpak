@@ -2,19 +2,19 @@
 # file: molecule/default/molecule.yaml
 
 dependency:
-  name: galaxy
+  name: "galaxy"
 driver:
-  name: docker
+  name: "docker"
 lint: |
   yamllint .
 platforms:
-  - name: ${DISTRO:-ubuntu-21.10}
-    image: "pmikus/docker-${MOLECULE_DISTRO:-ubuntu-21.10}-ansible:latest"
+  - name: "${DISTRO:-debian-12}"
+    image: "pmikus/docker-${MOLECULE_DISTRO:-debian-12}-ansible:latest"
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
     privileged: true
     pre_build_image: true
 provisioner:
-  name: ansible
+  name: "ansible"
   playbooks:
-    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+    converge: "${MOLECULE_PLAYBOOK:-converge.yml}"

@@ -1,13 +1,18 @@
 ---
 # file: tasks/main.yaml
 
-- include_tasks: "{{ ansible_distribution|lower }}.yaml"
+- name: "Update Package Cache (APT)"
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+  when:
+    - ansible_os_family == 'Debian'
   tags:
-    - FIXME-inst-dependencies
+    - flatpak-inst-prerequisites
 
-- name: Install FIXME.
-  package:
-    name: "{{ FIXME_package }}"
-    state: "{{ FIXME_package_state }}"
+- name: "Install Dependencies"
+  ansible.builtin.package:
+    name: "{{ packages | flatten(levels=1) }}"
+    state: "present"
   tags:
-    - FIXME-inst
+    - vault-inst-prerequisites

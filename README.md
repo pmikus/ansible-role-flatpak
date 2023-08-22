@@ -1,8 +1,10 @@
-# Ansible Role: Default template
+# Ansible Role: Flatpak
 
 ## Requirements
 
-None.
+[![CI](https://github.com/pmikus/ansible-role-flatpak/actions/workflows/CI.yml/badge.svg)](https://github.com/pmikus/ansible-role-flatpak/actions/workflows/CI.yml)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=pmikus_ansible-role-flatpak&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=pmikus_ansible-role-flatpak)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=pmikus_ansible-role-flatpak&metric=bugs)](https://sonarcloud.io/dashboard?id=pmikus_ansible-role-flatpak)
 
 ## Role Variables
 
@@ -21,7 +23,7 @@ None
 
     - hosts: localhost
       roles:
-        - pmikus.FIXME
+        - pmikus.flatpak
 
 ## License
 
