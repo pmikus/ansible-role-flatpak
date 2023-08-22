@@ -1,18 +1,15 @@
 ---
-# file: molecule/default/molecule.yaml
+# file: molecule/default/molecule.yml
 
 dependency:
-  name: "galaxy"
+  name: galaxy
 driver:
-  name: "docker"
+  name: podman
 lint: |
   yamllint .
 platforms:
-  - name: "${DISTRO:-debian-12}"
+  - name: "${MOLECULE_DISTRO:-debian-12}"
     image: "pmikus/docker-${MOLECULE_DISTRO:-debian-12}-ansible:latest"
-    volumes:
-      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    privileged: true
     pre_build_image: true
 provisioner:
   name: "ansible"
