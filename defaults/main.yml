@@ -4,8 +4,8 @@
 packages: "{{ packages_base + packages_by_distro[ansible_distribution|lower] }}"
 
 packages_base:
-    - "flatpak"
-    - "gnome-software-plugin-flatpak"
+  - "flatpak"
+  - "gnome-software-plugin-flatpak"
 
 packages_by_distro:
   ubuntu:
