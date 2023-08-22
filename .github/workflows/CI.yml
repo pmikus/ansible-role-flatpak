@@ -63,13 +63,12 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: "Install Galaxy dependencies."
-        run: "ansible-galaxy collection install community.general"
+      - name: "Install test pip dependencies."
+        run: "pip3 install yamllint"
 
       - name: "Lint code."
-        uses: "ansible/ansible-lint-action@v6.10.2"
-        with:
-          path: "pmikus.flatpak"
+        run: |
+          yamllint .
 
   sonarcloud:
     name: "SonarCloud"
