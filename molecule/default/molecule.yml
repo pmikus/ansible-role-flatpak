@@ -2,9 +2,9 @@
 # file: molecule/default/molecule.yml
 
 dependency:
-  name: galaxy
+  name: "galaxy"
 driver:
-  name: podman
+  name: "podman"
 lint: |
   yamllint .
 platforms:

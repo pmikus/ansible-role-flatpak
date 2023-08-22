@@ -12,3 +12,7 @@ packages_by_distro:
     - []
   debian:
     - []
+
+flatpakrepo_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+method: "system"
+state: "present"

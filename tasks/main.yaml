@@ -13,6 +13,15 @@
 - name: "Install Dependencies"
   ansible.builtin.package:
     name: "{{ packages | flatten(levels=1) }}"
-    state: "present"
+    state: "{{ state }}"
   tags:
     - flatpak-inst-prerequisites
+
+- name: "Add the Flathub Flatpak Repository Remote"
+  community.general.flatpak_remote:
+    name: "flathub"
+    flatpakrepo_url: "{{ flatpakrepo_url }}"
+    method: "{{ method }}"
+    state: "{{ state }}"
+  tags:
+    - flatpak-add-repo
