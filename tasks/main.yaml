@@ -15,4 +15,4 @@
     name: "{{ packages | flatten(levels=1) }}"
     state: "present"
   tags:
-    - vault-inst-prerequisites
+    - flatpak-inst-prerequisites
